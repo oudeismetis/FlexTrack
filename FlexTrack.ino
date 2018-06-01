@@ -20,39 +20,39 @@
 // Edit this section to choose the hardware design and set your payload ID etc
 
 // CHOOSE BOARD (comment out one of these only)
-#define HABDUINO
+// #define HABDUINO
 // #define UAVANUT_LORA
 // #define HS_APRS_300
 // #define HS_RTTY_300      
 
 // RTTY settings
-#define RTTY_PAYLOAD_ID   "CHANGE_ME"          // Do not use spaces.
-#define RTTY_FREQUENCY    434.65               // For devices that are frequency-agile
-#define RTTY_BAUD          50               // Comment out if not using RTTY
-#define RTTY_SHIFT        425                // Only used on boards where PWM is used for RTTY.
+// #define RTTY_PAYLOAD_ID   "CHANGE_ME"          // Do not use spaces.
+// #define RTTY_FREQUENCY    434.65               // For devices that are frequency-agile
+// #define RTTY_BAUD          50               // Comment out if not using RTTY
+// #define RTTY_SHIFT        425                // Only used on boards where PWM is used for RTTY.
 
 // Power settings
-#define POWERSAVING	                      // Comment out to disable GPS power saving
+// #define POWERSAVING	                      // Comment out to disable GPS power saving
 
 // LORA settings
-#define LORA_PAYLOAD_ID   "OO5"            // Do not use spaces.
-#define LORA_SLOT            11
-#define LORA_REPEAT_SLOT_1   -1
-#define LORA_REPEAT_SLOT_2   -1
+// #define LORA_PAYLOAD_ID   "OO5"            // Do not use spaces.
+// #define LORA_SLOT            11
+// #define LORA_REPEAT_SLOT_1   -1
+// #define LORA_REPEAT_SLOT_2   -1
 
-#define LORA_TIME_INDEX      2
-#define LORA_TIME_MUTLIPLER  2
-#define LORA_TIME_OFFSET     1
-#define LORA_PACKET_TIME    500
-#define LORA_FREQUENCY       434.45
+// #define LORA_TIME_INDEX      2
+// #define LORA_TIME_MUTLIPLER  2
+// #define LORA_TIME_OFFSET     1
+// #define LORA_PACKET_TIME    500
+// #define LORA_FREQUENCY       434.45
 
-#define LORA_ID              0
-#define LORA_CYCLETIME       20                // Set to zero to send continuously
-#define LORA_MODE            2
-#define LORA_BINARY          0
+// #define LORA_ID              0
+// #define LORA_CYCLETIME       20                // Set to zero to send continuously
+// #define LORA_MODE            2
+// #define LORA_BINARY          0
 
 // APRS settings
-#define APRS_CALLSIGN    "CHANGE"               // Max 6 characters
+#define APRS_CALLSIGN    "KC3KYV"               // Max 6 characters
 #define APRS_SSID            11
 #define APRS_PATH_ALTITUDE   1500              // Below this altitude, ** in metres **, path will switch to WIDE1-1, WIDE2-1.  Above it will be or path or WIDE2-1 (see below)
 #define APRS_HIGH_USE_WIDE2    1                 // 1 means WIDE2-1 is used at altitude; 0 means no path is used
@@ -73,59 +73,59 @@
 
 // For unsupported hardware, add your own section here
 
-#ifdef HS_APRS_300
-  #define GPS_I2C
-  #define LED_STATUS         A2
-  #define LED_TX             A3
-  #define APRS_ENABLE         6
-  #define APRS_DATA           3         
+// #ifdef HS_APRS_300
+//   #define GPS_I2C
+//   #define LED_STATUS         A2
+//   #define LED_TX             A3
+//   #define APRS_ENABLE         6
+//   #define APRS_DATA           3         
   
-  #define A0_MULTIPLIER      4.9
+//   #define A0_MULTIPLIER      4.9
   
-  #define WIREBUS             5
-#endif
+//   #define WIREBUS             5
+// #endif
 
-#ifdef HS_RTTY_300
-  #define GPS_I2C
-  #define LED_STATUS         A2
-  #define LED_TX             A3
-  #define RTTY_ENABLE         6
-  #define RTTY_DATA           3 
-  #define A0_MULTIPLIER      4.9
-  #define WIREBUS             5
-#endif
+// #ifdef HS_RTTY_300
+//   #define GPS_I2C
+//   #define LED_STATUS         A2
+//   #define LED_TX             A3
+//   #define RTTY_ENABLE         6
+//   #define RTTY_DATA           3 
+//   #define A0_MULTIPLIER      4.9
+//   #define WIREBUS             5
+// #endif
 
-#ifdef UAVANUT_LORA
-  #define GPS_I2C             1                // Comment out if using serial GPS
-  #define LORA_NSS           10                // Comment out to disable LoRa code
-  #define LORA_RESET          7                // Comment out if not connected
-  #define LORA_DIO0           3                
-  #define LORA_DIO5           2
-  #define LED_WARN            5
-  #define LED_OK              6
-  #define A0_MULTIPLIER      4.9
-#endif
+// #ifdef UAVANUT_LORA
+//   #define GPS_I2C             1                // Comment out if using serial GPS
+//   #define LORA_NSS           10                // Comment out to disable LoRa code
+//   #define LORA_RESET          7                // Comment out if not connected
+//   #define LORA_DIO0           3                
+//   #define LORA_DIO5           2
+//   #define LED_WARN            5
+//   #define LED_OK              6
+//  #define A0_MULTIPLIER      4.9
+// #endif
 
-#ifdef HABDUINO
-  #define LED_WARN           9
-  #define LED_OK             8
-  #define GPS_ON             2
-  #define RTTY_ENABLE        7
-  #define RTTY_DATA          4
-  #define APRS_ENABLE        6
-  #define APRS_DATA          3                // Comment out to disable APRS  
-  #define A0_MULTIPLIER      4.9
-  #define WIREBUS            5
-  #define MTX2
-#endif
+// #ifdef HABDUINO
+//   #define LED_WARN           9
+#define LED_OK             13
+//   #define GPS_ON             2
+//   #define RTTY_ENABLE        7
+//   #define RTTY_DATA          4
+#define APRS_ENABLE        6
+#define APRS_DATA          3                // Comment out to disable APRS  
+#define A0_MULTIPLIER      0
+#define WIREBUS            5
+//   #define MTX2
+// #endif
 
-#ifdef UAB
-  #define LED_OK              7
-  #define APRS_ENABLE         6
-  #define APRS_DATA           3         
-  #define GPS_SERIAL          Serial1
-  #define DEBUG_SERIAL        Serial
-#endif
+// #ifdef UAB
+//   #define LED_OK              7
+//   #define APRS_ENABLE         6
+//   #define APRS_DATA           3         
+//   #define GPS_SERIAL          Serial1
+//   #define DEBUG_SERIAL        Serial
+// #endif
 
 //------------------------------------------------------------------------------------------------------
 
@@ -140,11 +140,11 @@
   #define DEBUG_SERIAL Serial
 #endif
 
-//#define EXTRA_FIELD_FORMAT    ",%d,%d,%d"          // List of formats for extra fields. Make empty if no such fields.  Always use comma at start of there are any such fields.
-//#define EXTRA_FIELD_LIST           ,(int)((GPS.Speed * 13) / 7), GPS.Direction, GPS.Satellites
+#define EXTRA_FIELD_FORMAT    ",%d,%d,%d"          // List of formats for extra fields. Make empty if no such fields.  Always use comma at start of there are any such fields.
+#define EXTRA_FIELD_LIST           ,(int)((GPS.Speed * 13) / 7), GPS.Direction, GPS.Satellites
 
-#define EXTRA_FIELD_FORMAT      ",%d,%d,%d,%d,%d"          // List of formats for extra fields. Make empty if no such fields.  Always use comma at start of there are any such fields.
-#define EXTRA_FIELD_LIST            ,(int)((GPS.Speed * 13) / 7), GPS.Direction, GPS.Satellites, DS18B20_Temperatures[0], Channel0Average
+// #define EXTRA_FIELD_FORMAT      ",%d,%d,%d,%d,%d"          // List of formats for extra fields. Make empty if no such fields.  Always use comma at start of there are any such fields.
+// #define EXTRA_FIELD_LIST            ,(int)((GPS.Speed * 13) / 7), GPS.Direction, GPS.Satellites, DS18B20_Temperatures[0], Channel0Average
                                                                 // List of variables/expressions for extra fields. Make empty if no such fields.  Always use comma at start of there are any such fields.
 #define SENTENCE_LENGTH      100                  // This is more than sufficient for the standard sentence.  Extend if needed; shorten if you are tight on memory.
 

@@ -433,7 +433,9 @@ void CheckGPS(void)
         if (RequiredFlightMode != GPS.FlightMode)
         {
           SetFlightMode(RequiredFlightMode);
-          Serial.println("Setting flight mode\n");
+          Serial.print("Setting flight mode");
+          Serial.print(RequiredFlightMode);
+          Serial.println("");
         }
       break;
       
