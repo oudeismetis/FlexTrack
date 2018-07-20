@@ -38,6 +38,8 @@
 // Our variables
 
 unsigned long NextAPRS=0;
+float LastLat=0;
+float LastLon=0;
 int aprs_mode=0;
 unsigned int APRSSentenceCounter;
 volatile static uint8_t *_txbuf = 0;
@@ -68,7 +70,14 @@ void SetupAPRS(void)
 
 void CheckAPRS(void)
 {
-  if ((millis() >= NextAPRS) && (GPS.Satellites >= 4) && (_txlen == 0))
+  // Cache lat/long. If we don't have satellites, we'll transmit previous
+  if (GPS.Satellites >= 4)
+  {
+    LastLat = GPS.Latitude;
+    LastLon = GPS.Longitude;
+  }
+
+  if ((millis() >= NextAPRS) && (LastLat != 0) && (LastLon != 0) && (_txlen == 0))
   {   
     unsigned long Seconds;
     
@@ -149,8 +158,8 @@ void tx_aprs(void)
   char Wide1Path, Wide2Path;
   
   // Convert the UBLOX-style coordinates to the APRS compressed format
-  aprs_lat = 380926 * (90.0 - GPS.Latitude);
-  aprs_lon = 190463 * (180.0 + GPS.Longitude);
+  aprs_lat = 380926 * (90.0 - LastLat);
+  aprs_lon = 190463 * (180.0 + LastLon);
 
   aprs_alt = GPS.Altitude * 32808 / 10000;
   

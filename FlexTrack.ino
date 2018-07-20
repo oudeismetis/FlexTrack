@@ -113,7 +113,7 @@
 //   #define RTTY_ENABLE        7
 //   #define RTTY_DATA          4
 #define APRS_ENABLE        6
-#define APRS_DATA          3                // Comment out to disable APRS  
+#define APRS_DATA          3 
 #define A0_MULTIPLIER      0
 #define WIREBUS            5
 //   #define MTX2
